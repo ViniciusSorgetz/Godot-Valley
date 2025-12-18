@@ -12,7 +12,7 @@ var direction: Vector2;
 var last_direction: Vector2;
 var speed := 50;
 var can_move := true;
-var current_tool: Enum.Tool = Enum.Tool.FISH;
+var current_tool: Enum.Tool = Enum.Tool.AXE;
 var current_seed: Enum.Seed;
 
 func _physics_process(_delta: float):
@@ -55,8 +55,7 @@ func animate():
 		move_state_machine.travel("Idle");
  
 func tool_use_emit():
-	print(last_direction)
-	tool_use.emit(current_tool, position + (exclude_verticals(last_direction) * 16));
+	tool_use.emit(current_tool, position + (exclude_verticals(last_direction) *12));
 
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false
