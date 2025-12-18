@@ -3,11 +3,16 @@ extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $Animation/AnimationTree
 @onready var move_state_machine : Variant =  animation_tree.get("parameters/MoveStateMachine/playback");
 @onready var tool_state_machine: Variant = animation_tree.get("parameters/ToolStateMachine/playback");
+@onready var test_layer: TileMapLayer = %TestLayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+signal tool_use(tool: Enum.Tool, player_position: Vector2);
 
 var direction: Vector2;
+var last_direction: Vector2;
 var speed := 50;
 var can_move := true;
-var current_tool: Enum.Tool;
+var current_tool: Enum.Tool = Enum.Tool.FISH;
 var current_seed: Enum.Seed;
 
 func _physics_process(_delta: float):
@@ -16,6 +21,8 @@ func _physics_process(_delta: float):
 		get_basic_input();
 		animate();
 	
+	if(direction):
+		last_direction = direction;
 
 func get_basic_input():
 
@@ -28,7 +35,7 @@ func get_basic_input():
 
 	if(Input.is_action_just_pressed("action")):
 		tool_state_machine.travel(Data.TOOL_STATE_ANIMATIONS[current_tool]);
-		animation_tree.set("parameters/ToolOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		animation_tree.set("parameters/ToolOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
 
 func move():
 	direction = Input.get_vector("left", "right", "up", "down");
@@ -48,11 +55,21 @@ func animate():
 		move_state_machine.travel("Idle");
  
 func tool_use_emit():
-	print('tool');
+	print(last_direction)
+	tool_use.emit(current_tool, position + (exclude_verticals(last_direction) * 16));
 
 func _on_animation_tree_animation_started(_anim_name: StringName) -> void:
 	can_move = false
 
 func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
-	print("BANANA")
 	can_move = true
+
+# convert 9 diections to only 4, excluding verticals
+func exclude_verticals(dir : Vector2):
+	
+	if(round(dir.x)== -1):
+		return Vector2(-1, 0);
+	if(round(dir.x) == 1):
+		return Vector2(1, 0);
+
+	return dir;

@@ -1465,7 +1465,7 @@ transitions = ["Axe", "Hoe", SubResource("AnimationNodeStateMachineTransition_n7
 graph_offset = Vector2(-229, -26)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_inhyd"]
-graph_offset = Vector2(-958.7158, 546.07684)
+graph_offset = Vector2(-487.02548, 71.9021)
 nodes/output/position = Vector2(164.70587, 141.17647)
 nodes/ToolStateMachine/node = SubResource("AnimationNodeStateMachine_w5sjy")
 nodes/ToolStateMachine/position = Vector2(-376.47058, 376.47058)
@@ -1481,11 +1481,14 @@ collision_mask = 5
 script = ExtResource("2_76oj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
+frame = 50
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_atpat")
 
 [node name="Animation" type="Node" parent="."]
@@ -1514,6 +1517,7 @@ parameters/ToolOneShot/internal_active = false
 parameters/ToolOneShot/request = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(4, 4)
 
 [connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
