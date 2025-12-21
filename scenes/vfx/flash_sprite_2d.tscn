@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://x5giujuvps0l"]
+[gd_scene load_steps=7 format=3 uid="uid://x5giujuvps0l"]
 
 [ext_resource type="Shader" uid="uid://v0h0hpfvcbvg" path="res://shaders/flash.gdshader" id="1_6twfp"]
-[ext_resource type="Texture2D" uid="uid://bjyisaqia5rw1" path="res://graphics/ui/bar.png" id="2_6twfp"]
 [ext_resource type="Script" uid="uid://pya2iede0enp" path="res://scenes/vfx/flash_sprite_2d.gd" id="2_etx6k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ak7js"]
@@ -49,7 +48,6 @@ _data = {
 [node name="FlashSprite2d" type="Sprite2D"]
 material = SubResource("ShaderMaterial_ak7js")
 position = Vector2(0, 8)
-texture = ExtResource("2_6twfp")
 script = ExtResource("2_etx6k")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

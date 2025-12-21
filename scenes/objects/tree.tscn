@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfqi1vapabq4g"]
+[gd_scene load_steps=6 format=3 uid="uid://cfqi1vapabq4g"]
 
 [ext_resource type="Script" uid="uid://mj5c8fcetesj" path="res://scenes/objects/tree.gd" id="1_5qchx"]
 [ext_resource type="Texture2D" uid="uid://d3pi6mohcmq4p" path="res://graphics/plants/tree.png" id="1_r6wkp"]
+[ext_resource type="Texture2D" uid="uid://dyxbmdangl8xx" path="res://graphics/plants/stump.png" id="2_7yu6v"]
 [ext_resource type="PackedScene" uid="uid://x5giujuvps0l" path="res://scenes/vfx/flash_sprite_2d.tscn" id="2_eogu4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r6wkp"]
@@ -10,9 +11,31 @@ radius = 6.0
 [node name="Tree" type="StaticBody2D" groups=["Objects"]]
 script = ExtResource("1_5qchx")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_r6wkp")
+[node name="Stump" type="Sprite2D" parent="."]
+position = Vector2(0, 7.5)
+texture = ExtResource("2_7yu6v")
 
 [node name="FlashSprite2d" parent="." instance=ExtResource("2_eogu4")]
+position = Vector2(0, -2)
 texture = ExtResource("1_r6wkp")
 hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_r6wkp")
+
+[node name="AppleSpawnPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(-9, -4)
+
+[node name="Marker2D2" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(3, -9)
+
+[node name="Marker2D3" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(7, 1)
+
+[node name="Marker2D4" type="Marker2D" parent="AppleSpawnPositions"]
+position = Vector2(-7, 4)
+
+[node name="Apples" type="Node2D" parent="."]

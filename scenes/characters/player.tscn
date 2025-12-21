@@ -1465,7 +1465,7 @@ transitions = ["Axe", "Hoe", SubResource("AnimationNodeStateMachineTransition_n7
 graph_offset = Vector2(-229, -26)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_inhyd"]
-graph_offset = Vector2(-487.02548, 71.9021)
+graph_offset = Vector2(-508.6649, 90.927246)
 nodes/output/position = Vector2(164.70587, 141.17647)
 nodes/ToolStateMachine/node = SubResource("AnimationNodeStateMachine_w5sjy")
 nodes/ToolStateMachine/position = Vector2(-376.47058, 376.47058)
@@ -1475,17 +1475,17 @@ nodes/ToolOneShot/node = SubResource("AnimationNodeOneShot_yewv4")
 nodes/ToolOneShot/position = Vector2(-94.117645, 141.17647)
 node_connections = [&"output", 0, &"ToolOneShot", &"ToolOneShot", 0, &"MoveStateMachine", &"ToolOneShot", 1, &"ToolStateMachine"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("2_76oj4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["Player"]]
 position = Vector2(0, -3)
 texture = ExtResource("3_6eyoc")
 hframes = 33
 vframes = 4
-frame = 50
+frame = 51
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)

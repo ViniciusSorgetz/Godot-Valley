@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var tool_state_machine: Variant = animation_tree.get("parameters/ToolStateMachine/playback");
 @onready var test_layer: TileMapLayer = %TestLayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
 
 signal tool_use(tool: Enum.Tool, player_position: Vector2);
 
@@ -12,7 +13,7 @@ var direction: Vector2;
 var last_direction: Vector2;
 var speed := 50;
 var can_move := true;
-var current_tool: Enum.Tool = Enum.Tool.AXE;
+var current_tool: Enum.Tool = Enum.Tool.SWORD;
 var current_seed: Enum.Seed;
 
 func _physics_process(_delta: float):
