@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://0b6lf1ng3gmi"]
+[gd_scene load_steps=64 format=3 uid="uid://0b6lf1ng3gmi"]
 
 [ext_resource type="PackedScene" uid="uid://dipy7c4c5bx65" path="res://scenes/vfx/flash_animated_sprite_2d.tscn" id="1_h5a76"]
 [ext_resource type="Script" uid="uid://juvfy0fdbohq" path="res://scenes/characters/blob.gd" id="1_n17ut"]
@@ -439,123 +439,39 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
+tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack_down"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_mt6qh"]
-resource_name = "attack_down"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack_down"]
-}
-
-[sub_resource type="Animation" id="Animation_1oscj"]
-resource_name = "attack_left"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack_left"]
-}
-
-[sub_resource type="Animation" id="Animation_gsie5"]
-resource_name = "attack_right"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack_right"]
-}
-
-[sub_resource type="Animation" id="Animation_nlap5"]
-resource_name = "attack_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"attack_up"]
-}
-
 [sub_resource type="Animation" id="Animation_6m7xw"]
 resource_name = "death_down"
-loop_mode = 1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
+tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"death_down"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -565,39 +481,27 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_yld43"]
 resource_name = "death_left"
-loop_mode = 1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
+tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"death_left"]
+"values": [true]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -607,39 +511,27 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_3dalk"]
 resource_name = "death_right"
-loop_mode = 1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
+tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"death_right"]
+"values": [true]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -649,39 +541,27 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_py8ow"]
 resource_name = "death_up"
-loop_mode = 1
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
+tracks/0/path = NodePath("CollisionShape2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"death_up"]
+"values": [true]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.6),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -689,252 +569,14 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_pjcp6"]
-resource_name = "walk_down"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk_down"]
-}
-
-[sub_resource type="Animation" id="Animation_xa0uo"]
-resource_name = "walk_left"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk_left"]
-}
-
-[sub_resource type="Animation" id="Animation_7rtlp"]
-resource_name = "walk_right"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk_right"]
-}
-
-[sub_resource type="Animation" id="Animation_50kq6"]
-resource_name = "walk_up"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashSpriteAnimated2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"walk_up"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0358t"]
 _data = {
 &"RESET": SubResource("Animation_n17ut"),
-&"attack_down": SubResource("Animation_mt6qh"),
-&"attack_left": SubResource("Animation_1oscj"),
-&"attack_right": SubResource("Animation_gsie5"),
-&"attack_up": SubResource("Animation_nlap5"),
 &"death_down": SubResource("Animation_6m7xw"),
 &"death_left": SubResource("Animation_yld43"),
 &"death_right": SubResource("Animation_3dalk"),
-&"death_up": SubResource("Animation_py8ow"),
-&"walk_down": SubResource("Animation_pjcp6"),
-&"walk_left": SubResource("Animation_xa0uo"),
-&"walk_right": SubResource("Animation_7rtlp"),
-&"walk_up": SubResource("Animation_50kq6")
+&"death_up": SubResource("Animation_py8ow")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_py8ow"]
-animation = &"attack_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6m7xw"]
-animation = &"attack_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yld43"]
-animation = &"attack_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3dalk"]
-animation = &"attack_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xshcy"]
-animation = &"attack_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g8o3c"]
-animation = &"attack_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yrhs5"]
-animation = &"attack_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pf53p"]
-animation = &"attack_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5ly2e"]
-animation = &"death_down"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xa0uo"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_py8ow")
-blend_point_0/pos = Vector2(0, -1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_6m7xw")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_yld43")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_3dalk")
-blend_point_3/pos = Vector2(-1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_xshcy")
-blend_point_4/pos = Vector2(-1, 1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_g8o3c")
-blend_point_5/pos = Vector2(-1, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_yrhs5")
-blend_point_6/pos = Vector2(1, 1)
-blend_point_7/node = SubResource("AnimationNodeAnimation_pf53p")
-blend_point_7/pos = Vector2(1, -1)
-blend_point_8/node = SubResource("AnimationNodeAnimation_5ly2e")
-blend_point_8/pos = Vector2(0, 0)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dvx72"]
-animation = &"death_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uv1ll"]
-animation = &"death_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p8xbr"]
-animation = &"death_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kuccv"]
-animation = &"death_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ascxr"]
-animation = &"death_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fj18k"]
-animation = &"death_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oj5vb"]
-animation = &"death_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hpnw8"]
-animation = &"death_right"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_50kq6"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_dvx72")
-blend_point_0/pos = Vector2(0, -0.90000004)
-blend_point_1/node = SubResource("AnimationNodeAnimation_uv1ll")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_p8xbr")
-blend_point_2/pos = Vector2(1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_kuccv")
-blend_point_3/pos = Vector2(-1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_ascxr")
-blend_point_4/pos = Vector2(-1, 1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_fj18k")
-blend_point_5/pos = Vector2(-1, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_oj5vb")
-blend_point_6/pos = Vector2(1, 1)
-blend_point_7/node = SubResource("AnimationNodeAnimation_hpnw8")
-blend_point_7/pos = Vector2(1, -1)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nlap5"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n17ut"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n17ut"]
-states/Attack/node = SubResource("AnimationNodeBlendSpace2D_xa0uo")
-states/Attack/position = Vector2(468.83664, 109.224915)
-states/Death/node = SubResource("AnimationNodeBlendSpace2D_50kq6")
-states/Death/position = Vector2(469.3518, 30.470581)
-states/End/position = Vector2(794.1177, 107.58586)
-states/Start/position = Vector2(198.82353, 109.39955)
-transitions = ["Attack", "Death", SubResource("AnimationNodeStateMachineTransition_nlap5"), "Start", "Attack", SubResource("AnimationNodeStateMachineTransition_n17ut")]
-
-[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_n17ut"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n17ut"]
-animation = &"walk_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xa0uo"]
-animation = &"walk_down"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_50kq6"]
-animation = &"walk_up"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pjcp6"]
-animation = &"walk_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nlap5"]
-animation = &"walk_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mt6qh"]
-animation = &"walk_left"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1oscj"]
-animation = &"walk_right"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gsie5"]
-animation = &"walk_right"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_n17ut"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_n17ut")
-blend_point_0/pos = Vector2(1, 0)
-blend_point_1/node = SubResource("AnimationNodeAnimation_xa0uo")
-blend_point_1/pos = Vector2(0, 1)
-blend_point_2/node = SubResource("AnimationNodeAnimation_50kq6")
-blend_point_2/pos = Vector2(0, -1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_pjcp6")
-blend_point_3/pos = Vector2(-1, 0)
-blend_point_4/node = SubResource("AnimationNodeAnimation_nlap5")
-blend_point_4/pos = Vector2(-1, 1)
-blend_point_5/node = SubResource("AnimationNodeAnimation_mt6qh")
-blend_point_5/pos = Vector2(-1, -1)
-blend_point_6/node = SubResource("AnimationNodeAnimation_1oscj")
-blend_point_6/pos = Vector2(1, 1)
-blend_point_7/node = SubResource("AnimationNodeAnimation_gsie5")
-blend_point_7/pos = Vector2(1, -1)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xa0uo"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_50kq6"]
-states/Walk/node = SubResource("AnimationNodeBlendSpace2D_n17ut")
-states/Walk/position = Vector2(483.05884, 99.88642)
-transitions = ["Start", "Walk", SubResource("AnimationNodeStateMachineTransition_xa0uo")]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_n17ut"]
-graph_offset = Vector2(-224.17737, 179.51685)
-nodes/output/position = Vector2(800, 376.47058)
-nodes/WalkStateMachine/node = SubResource("AnimationNodeStateMachine_50kq6")
-nodes/WalkStateMachine/position = Vector2(282.35294, 352.94116)
-nodes/OneShot/node = SubResource("AnimationNodeOneShot_n17ut")
-nodes/OneShot/position = Vector2(564.7059, 352.94116)
-nodes/AttackAndDeathStateMachine/node = SubResource("AnimationNodeStateMachine_n17ut")
-nodes/AttackAndDeathStateMachine/position = Vector2(282.35294, 682.3529)
-node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"WalkStateMachine", &"OneShot", 1, &"AttackAndDeathStateMachine"]
 
 [node name="Blob" type="CharacterBody2D" groups=["Objects"]]
 script = ExtResource("1_n17ut")
@@ -942,29 +584,17 @@ script = ExtResource("1_n17ut")
 [node name="FlashSpriteAnimated2D" parent="." instance=ExtResource("1_h5a76")]
 position = Vector2(-0.5, -4)
 sprite_frames = SubResource("SpriteFrames_7rtlp")
-animation = &"attack_down"
+animation = &"death_down"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_n17ut")
 
-[node name="Animation" type="Node2D" parent="."]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Animation"]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_0358t")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="Animation"]
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeBlendTree_n17ut")
-anim_player = NodePath("../AnimationPlayer")
-parameters/WalkStateMachine/Walk/blend_position = Vector2(0, 0)
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-parameters/AttackAndDeathStateMachine/Attack/blend_position = Vector2(0, 0)
-parameters/AttackAndDeathStateMachine/Death/blend_position = Vector2(0, 0)
-
-[connection signal="animation_finished" from="Animation/AnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="FlashSpriteAnimated2D" to="." method="_on_flash_sprite_animated_2d_animation_finished"]

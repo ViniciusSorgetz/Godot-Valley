@@ -1,50 +1,71 @@
 extends CharacterBody2D
 
-@onready var animation_player: AnimationPlayer = $Animation/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("Player");
-@onready var flash_sprite_animated_2d: Node = $FlashSpriteAnimated2D;
-@onready var animation_tree: AnimationTree = $Animation/AnimationTree
-@onready var attack_and_death_state_machine: Variant = animation_tree.get("parameters/AttackAndDeathStateMachine/playback");
+@onready var flash_sprite_animated_2d: AnimatedSprite2D = $FlashSpriteAnimated2D;
 
+enum State {WALKING, ATTACKING, DYING};
+const State_Animations = {
+	State.WALKING: "walk",
+	State.ATTACKING: "attack",
+	State.DYING: "death"
+}
+var current_animation_state: State = State.WALKING;
+var dir_string: String = State_Animations[current_animation_state];
 var speed := 30;
 var direction: Vector2;
 var can_move := true;
-var health := 3:
-	set(value):
-		health = value;
-		if(health <= 0):
-			attack_and_death_state_machine.travel("Death");
-			animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
-
+var health := 3;
+		
 func _physics_process(_delta: float) -> void:
-	if(can_move):
+	if(can_move && health > 0):
 		move();
-		animate();
+		handle_animation();
+
 
 func hit(tool: Enum.Tool):
 	if(tool == Enum.Tool.SWORD):
 		flash_sprite_animated_2d.flash();
-		health -= 1;
+		decrease_health();
 
-func move():
+
+func move() -> void:
 	flash_sprite_animated_2d.play(flash_sprite_animated_2d.animation);
 	direction = position.direction_to(player.position);
 	velocity = direction * speed;
 
 	if(position.distance_to(player.position) > 15):
+		current_animation_state = State.WALKING;
 		move_and_slide();
 	else:
 		can_move = false;
-		animation_tree.set("parameters/OneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE);
+		current_animation_state = State.ATTACKING;
 
-func animate():
+func decrease_health():
+	health -= 1;
+	if(health <= 0):
+		current_animation_state = State.DYING;
+		handle_animation();
+		animation_player.play(dir_string);
 
-	var dir := direction.round();
+func handle_animation() -> void:
 
-	animation_tree.set("parameters/WalkStateMachine/Walk/blend_position", dir);
-	animation_tree.set("parameters/AttackAndDeathStateMachine/Death/blend_position", dir);
-	animation_tree.set("parameters/AttackAndDeathStateMachine/Attack/blend_position", dir);
+	var dir = direction.round();
+	dir_string = State_Animations[current_animation_state];
 
+	# note: dir is never (0, 0)
+	if(dir.x):
+		if(dir.x == 1):
+			dir_string += "_right";
+		if(dir.x == -1):
+			dir_string += "_left";
+	else:
+		if(dir.y == 1):
+			dir_string += "_down";
+		if(dir.y == -1):
+			dir_string += "_up";
 
-func _on_animation_tree_animation_finished(_anim_name: StringName) -> void:
+	flash_sprite_animated_2d.play(dir_string);
+
+func _on_flash_sprite_animated_2d_animation_finished() -> void:
 	can_move = true;
